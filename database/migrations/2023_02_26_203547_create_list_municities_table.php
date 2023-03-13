@@ -15,7 +15,10 @@ return new class extends Migration
     {
         Schema::create('list_municities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('index');
+            $table->string('name');
+            $table->string('is_active');
+            $table->timestamps();;
         });
     }
 

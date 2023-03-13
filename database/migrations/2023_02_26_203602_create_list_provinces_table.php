@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('list_provinces', function (Blueprint $table) {
             $table->id();
+            $table->string('index');
+            $table->string('name');
+            $table->string('is_active');
             $table->timestamps();
         });
     }

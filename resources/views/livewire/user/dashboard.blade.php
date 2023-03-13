@@ -31,13 +31,8 @@
                     </li>
                 </x-topbar-desktop>
 
-                <!-- Dashboard Status -->
-                {{-- <x-dashboard.stats-v1 /> --}}
-                <x-dashboard.assessor-stats />
-                <x-dashboard.treasurer-stats />
-
-                <!-- Dashboard Redirect functions -->
-                {{-- <x-dashboard.redirect-v1 /> --}}
+                <x-dashboard.aics-stats />
+                <x-dashboard.referral-stats />
 
             </main>
         </div>
