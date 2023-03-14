@@ -39,12 +39,12 @@ class AssessmentRoll extends Component
     public $assmt_roll_remarks;
     public $show_assmt_roll_modal = false;
     public $showDeleteSingleRecordModal = false;
-    public $sortField = 'id';
-    public $sortDirection;
 
     public $filters = [
         'search' => '',
         'status' => '',
+        'sort-field' => 'form',
+        'sort-direction' => 'asc',
         'amount-min' => null,
         'amount-max' => null,
         'date-min' => null,
@@ -52,19 +52,19 @@ class AssessmentRoll extends Component
     ];
 
     public function mount(){
-        $this->sortDirection = 'asc';
+        $this->filters['sort-direction'] = 'asc';
     }
 
     protected $queryString = ['sortField','sortDirection'];
 
     public function sortBy($field){
 
-        if($this->sortField === $field) {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        if($this->filters['sort-field'] === $field) {
+            $this->filters['sort-direction'] = $this->filters['sort-direction'] === 'asc' ? 'desc' : 'asc';
         } else {
-            $this->sortDirection = 'asc';
+            $this->filters['sort-direction'] = 'asc';
         }
-        $this->sortField = $field;
+        $this->filters['sort-field'] = $field;
     }
 
     public function toggleCreateAssmtRollModal()

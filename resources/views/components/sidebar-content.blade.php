@@ -41,138 +41,54 @@
             </div>
         </div>
     </div>
-    <!-- Sidebar Search -->
-    {{-- <div class="px-3 mt-5">
-        <label for="search" class="sr-only">Search</label>
-        <div class="relative mt-1 rounded-md shadow-sm">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none" aria-hidden="true">
-                <!-- Heroicon name: solid/search -->
-                <svg class="w-4 h-4 mr-3 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                    fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clip-rule="evenodd" />
-                </svg>
-            </div>
-            <input type="text" name="search" id="search"
-                class="block w-full py-2 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 pl-9 sm:text-sm"
-                placeholder="Searched">
-        </div>
-    </div> --}}
+
     <!-- Navigation -->
     <nav class="flex-1 px-2 space-y-1" aria-label="Sidebar">
         <div>
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-            <a href="#"
+            <a href="{{ route('user-dashboard',['user_id'=>Auth::user()->id])  }}"
                 class="flex items-center w-full py-2 pl-2 text-sm font-medium text-blue-700 bg-blue-200 rounded-md group">
                 <x-icon.home class="flex-shrink-0 w-6 h-6 mr-3" />
                 DASHBOARD
             </a>
         </div>
-
-        {{-- MUNICIPAL ASSESSOR OFFICE --}}
+        {{-- MUNICIPAL SOCIAL WELFARE DEVELOPMENT OFFICE --}}
         <div class="space-y-1">
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <button type="button"
                 class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-blue-700 bg-blue-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-controls="sub-menu-4" aria-expanded="false">
                 <x-icon.document class="flex-shrink-0 w-6 h-6 mr-3" />
-                <span class="flex-1"> ASSESSOR </span>
+                <span class="flex-1"> MSWD </span>
                 <!-- Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" -->
                 <x-icon.arrow-head class="flex-shrink-0 w-5 h-5 ml-3 text-gray-300 transition-colors duration-150 ease-in-out transform rotate-90 group-hover:text-gray-400"/>
             </button>
             <!-- Expandable link section, show/hide based on state. -->
             <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('assessment-roll',['user_id'=>Auth::user()->id]) }}"
+                <a href="{{ route('mswd/client-list',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Assessment Roll </span></a>
+                <span class="flex-1"> CLIENTS</span></a>
             </div>
             <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mao-reports',['user_id'=>Auth::user()->id]) }}"
+                <a href="{{ route('mswd/aics-list',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Reports </span></a>
+                <span class="flex-1"> AICS</span></a>
+            </div>
+            <div class="space-y-1" id="sub-menu-4">
+                <a href="{{ route('mswd/referral-list',['user_id'=>Auth::user()->id]) }}"
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
+                <span class="flex-1"> REFERRAL </span></a>
+            </div>
+            <div class="space-y-1" id="sub-menu-4">
+                <a href="{{ route('mswd/mswd-reports',['user_id'=>Auth::user()->id]) }}"
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
+                <span class="flex-1"> REPORTS </span></a>
             </div>
         </div>
-
-        {{-- MUNICIPAL TREASURER OFFICE --}}
-        <div class="space-y-1">
-            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-            <button type="button"
-                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-blue-700 bg-blue-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                aria-controls="sub-menu-4" aria-expanded="false">
-                <x-icon.document class="flex-shrink-0 w-6 h-6 mr-3" />
-                <span class="flex-1"> TREASURER </span>
-                <!-- Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" -->
-                <x-icon.arrow-head class="flex-shrink-0 w-5 h-5 ml-3 text-gray-300 transition-colors duration-150 ease-in-out transform rotate-90 group-hover:text-gray-400"/>
-            </button>
-            <!-- Expandable link section, show/hide based on state. -->
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('account-list',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Account Lists </span></a>
-            </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('collections',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Collections </span></a>
-            </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mto-reports',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Reports </span></a>
-            </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mto-settings',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Settings </span></a>
-            </div>
-        </div>
-
-        {{-- <div class="space-y-1">
-            <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
-            <button type="button"
-                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-blue-700 bg-blue-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                aria-controls="sub-menu-4" aria-expanded="false">
-                <x-icon.document class="flex-shrink-0 w-6 h-6 mr-3" />
-                <span class="flex-1"> Documents </span>
-                <!-- Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" -->
-                <x-icon.arrow-head class="flex-shrink-0 w-5 h-5 ml-3 text-gray-300 transition-colors duration-150 ease-in-out transform rotate-90 group-hover:text-gray-400"/>
-            </button>
-            <!-- Expandable link section, show/hide based on state. -->
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('Documents',['user_id'=>Auth::user()->id, 'type'=>'my-documents']) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-gray-600 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> My Documents </span></a>
-
-                <a href="{{ route('Documents',['user_id'=>Auth::user()->id, 'type'=>'office-documents']) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-gray-600 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Office Documents </span></a>
-
-                <a href="#"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-gray-600 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.clock class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Pending Documents </span></a>
-
-                <a href="#"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-gray-600 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.arrows-right-left class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Received / Released </span></a>
-
-                <a href="#"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-gray-600 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-minus class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Terminal Documents </span></a>
-
-            </div>
-        </div> --}}
 
         <div class="space-y-1">
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->

@@ -15,20 +15,23 @@ return new class extends Migration
     {
         Schema::create('assistances', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string('claimant_id');
-            $table->string('beneficiary_id');
-            $table->string('relation');
-            $table->string('assistance_type');
+            $table->string('date')->nullable();
+            $table->string('claimant_id')->nullable();
+            $table->string('beneficiary_id')->nullable();
+            $table->string('relation')->nullable();
+            $table->string('assistance_type')->nullable();
             ##burial medical education fire transpo house_repair add_capital
-            $table->string('amount');
-            $table->string('amount_type');
+            $table->string('assistance_class')->nullable();
+            ## aics or referral
+            $table->string('amount')->nullable();
+            $table->string('amount_type')->nullable();
             ##cash or check
-            $table->string('referral');
-            $table->string('welfare_agency');
-            $table->string('worker_id');
-            $table->string('is_active');
-            $table->text('remarks');
+            $table->string('referral')->nullable();
+            $table->string('welfare_agency')->nullable();
+            $table->string('worker_id')->nullable();
+            $table->string('is_active')->nullable();
+            $table->text('encoder_id')->nullable();
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });
     }

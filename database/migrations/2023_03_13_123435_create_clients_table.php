@@ -15,19 +15,20 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name');
-            $table->string('middle_name');
-            $table->string('last_name');
-            $table->string('birthdate');
-            $table->string('gender');
-            $table->string('photo');
-            $table->string('category'); ##claimant ##Benefeciary
-            $table->string('lot_blk_no');
-            $table->string('street');
-            $table->string('barangay');
-            $table->string('contact');
-            $table->string('is_active');
-            $table->text('remarks');
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('birthdate')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('category')->nullable(); ##claimant ##Benefeciary
+            $table->string('lot_blk_no')->nullable();
+            $table->string('street')->nullable();
+            $table->string('barangay')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('email')->nullable();
+            $table->string('is_active')->nullable();
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });
     }

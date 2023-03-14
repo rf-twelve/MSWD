@@ -15,9 +15,11 @@ class UsersManagement extends Component
 
     public $selected_user;
     public $all_users;
+    public $all_roles;
+    public $all_permissions;
     public $user_role;
     public $user_permission;
-    public $search;
+    public $search = '';
     public $addRoleModal, $addPermissionModal;
     public $assign_role_confirmation, $assign_permission_confirmation;
     public $role_id;
@@ -31,14 +33,16 @@ class UsersManagement extends Component
     {
         // dd(Role::get());
         return view('livewire.settings.users-management',[
-            'role_list' => Role::get(),
+            'role_list' => $this->all_roles,
             'permission_list' => Permission::get()->groupBy('group'),
             'user_list' => $this->all_users,
         ]);
     }
 
     public function mount(){
-        $this->all_users =  User::get();
+        $this->all_users =  User::where('fullname','LIKE','%'."Ad".'%')->get();
+        $this->all_roles =  Role::get();
+        // $this->all_permissions =  User::get();
         $this->addRoleModal = false;
         $this->addPermissionModal = false;
         $this->assign_role_confirmation = false;
@@ -46,12 +50,13 @@ class UsersManagement extends Component
         $this->selectedUser(($this->all_users->first())['id']);
     }
 
-    public function updatedSearch(){
-        $this->all_users = User::where('fullname','LIKE','%'.$this->search.'%')->get();
-    }
+    // public function updatedSearch(){
+    //     $this->all_users = $this->all_users->where('fullname','LIKE','%'.$this->search.'%');
+    //     $this->all_users = $this->all_users->where('fullname','LIKE','%'.$this->search.'%');
+    // }
 
     public function selectedUser($id){
-        $this->selected_user = User::find($id);
+        $this->selected_user = $this->all_users->where('id',$id)->first();
 
         $get_role = '';
         $get_permissions = [];

@@ -14,11 +14,6 @@
                 </p>
             </x-slot>
             <x-slot name="content">
-                <div class="py-1" role="none">
-                    <a href="{{ route('assessment-roll',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
-                        View
-                    </a>
-                </div>
             </x-slot>
         </x-dashboard.stats>
 

@@ -602,6 +602,10 @@ video {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 .-my-2 {
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
@@ -651,9 +655,6 @@ video {
 }
 .ml-3 {
   margin-left: 0.75rem;
-}
-.mt-5 {
-  margin-top: 1.25rem;
 }
 .mr-3 {
   margin-right: 0.75rem;
@@ -729,6 +730,9 @@ video {
 }
 .-mb-8 {
   margin-bottom: -2rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
 }
 .-mr-14 {
   margin-right: -3.5rem;
@@ -1129,6 +1133,11 @@ video {
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
+.space-y-20 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(5rem * var(--tw-space-y-reverse));
+}
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1500,6 +1509,14 @@ video {
   padding-top: 0.875rem;
   padding-bottom: 0.875rem;
 }
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1511,12 +1528,6 @@ video {
 }
 .pt-0 {
   padding-top: 0px;
-}
-.pl-3 {
-  padding-left: 0.75rem;
-}
-.pl-9 {
-  padding-left: 2.25rem;
 }
 .pl-2 {
   padding-left: 0.5rem;
@@ -1554,6 +1565,9 @@ video {
 .pt-4 {
   padding-top: 1rem;
 }
+.pl-3 {
+  padding-left: 0.75rem;
+}
 .pl-10 {
   padding-left: 2.5rem;
 }
@@ -1581,11 +1595,11 @@ video {
 .pt-1 {
   padding-top: 0.25rem;
 }
-.pr-9 {
-  padding-right: 2.25rem;
-}
 .pl-4 {
   padding-left: 1rem;
+}
+.pr-9 {
+  padding-right: 2.25rem;
 }
 .text-left {
   text-align: left;
@@ -1656,6 +1670,9 @@ video {
 }
 .font-extrabold {
   font-weight: 800;
+}
+.font-light {
+  font-weight: 300;
 }
 .uppercase {
   text-transform: uppercase;
@@ -2627,6 +2644,11 @@ video {
     border-left-width: 1px;
   }
 
+  .sm\:border-gray-200 {
+    --tw-border-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  }
+
   .sm\:p-6 {
     padding: 1.5rem;
   }
@@ -2707,6 +2729,10 @@ video {
 
   .sm\:pb-1 {
     padding-bottom: 0.25rem;
+  }
+
+  .sm\:pl-3 {
+    padding-left: 0.75rem;
   }
 
   .sm\:text-left {
