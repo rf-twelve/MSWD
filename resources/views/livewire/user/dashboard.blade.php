@@ -31,6 +31,7 @@
                     </li>
                 </x-topbar-desktop>
 
+                <x-dashboard.docs-stats />
                 <x-dashboard.aics-stats />
                 <x-dashboard.referral-stats />
 

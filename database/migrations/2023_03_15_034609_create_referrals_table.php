@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('assistances', function (Blueprint $table) {
+      Schema::create('referrals', function (Blueprint $table) {
             $table->id();
             $table->string('date')->nullable();
             $table->string('claimant_id')->nullable();
@@ -23,19 +23,13 @@ return new class extends Migration
             $table->string('medical')->nullable();
             $table->string('educational')->nullable();
             $table->string('fire')->nullable();
-            $table->string('transpo')->nullable();
-            $table->string('house_repair')->nullable();
-            $table->string('add_capital')->nullable();
             $table->string('others')->nullable();
-            $table->string('amount')->nullable();
-            $table->string('amount_type')->nullable();
+            $table->text('remarks')->nullable();
+            $table->string('welfare_agency')->nullable();
+            $table->string('contact')->nullable();
             $table->string('worker_id')->nullable();
             $table->string('is_active')->nullable();
             $table->text('encoder_id')->nullable();
-            $table->text('remarks')->nullable();
-            $table->text('date_release')->nullable();
-            $table->text('charges')->nullable();
-            $table->text('status')->nullable();
             $table->timestamps();
         });
     }
@@ -47,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assistances');
+        Schema::dropIfExists('referrals');
     }
 };

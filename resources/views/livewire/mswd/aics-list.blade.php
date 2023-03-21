@@ -116,6 +116,12 @@
                                     Worker
                                 </x-table.head>
                                 <x-table.head class="px-2 py-1">
+                                    Date Released
+                                </x-table.head>
+                                <x-table.head class="px-2 py-1">
+                                    Charges
+                                </x-table.head>
+                                <x-table.head class="px-2 py-1">
                                     Remarks
                                 </x-table.head>
                                 <x-table.head class="w-10 px-6 py-1">
@@ -145,17 +151,6 @@
                                     <x-table.cell class="w-6 pl-2 pr-0">
                                         <x-checkbox wire:model="selected" value="{{ $item->id }}" />
                                     </x-table.cell>
-                                    Date
-                                    Name of Claimant
-                                    Barangay
-                                    Name of Benefeciary
-                                    Relationship
-                                    Case Study
-                                    Amount
-                                    Contact #
-                                    Worker
-                                    Remarks
-
                                     <x-table.cell class="flex space-y-2">
                                         <span>{{ $item->date }}</span>
                                     </x-table.cell>
@@ -182,6 +177,12 @@
                                     </x-table.cell>
                                     <x-table.cell>
                                         <span>{{ $item->worker_id }}</span>
+                                    </x-table.cell>
+                                    <x-table.cell>
+                                        <span>{{ $item->date_released }}</span>
+                                    </x-table.cell>
+                                    <x-table.cell>
+                                        <span>{{ $item->charges }}</span>
                                     </x-table.cell>
                                     <x-table.cell>
                                         <span>{{ $item->remarks }}</span>

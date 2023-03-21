@@ -25,13 +25,14 @@ class UsersManagement extends Component
     public $role_id;
     public $role_name;
     public $assign_user_role_id, $assign_user_role_name;
-    public $permission_id;
-    public $permission_name;
-    public $action_array = ['create','read','update','delete'];
+    public $assign_user_permission_id, $assign_user_permission_name;
+    // public $permission_id;
+    // public $permission_name;
+    public $action_array = ['create','read','update','delete','access'];
 
     public function render()
     {
-        // dd(Role::get());
+        // dd(User::ACTIONS);
         return view('livewire.settings.users-management',[
             'role_list' => $this->all_roles,
             'permission_list' => Permission::get()->groupBy('group'),
@@ -55,6 +56,12 @@ class UsersManagement extends Component
     //     $this->all_users = $this->all_users->where('fullname','LIKE','%'.$this->search.'%');
     // }
 
+    public function togglePermissionForUser($permission)
+    {
+        $this->assign_user_permission_name = $permission;
+        $this->assign_permission_confirmation = true;
+    }
+
     public function selectedUser($id){
         $this->selected_user = $this->all_users->where('id',$id)->first();
 
@@ -68,16 +75,6 @@ class UsersManagement extends Component
         }
         $this->user_role = $get_role;
         $this->user_permission = $get_permissions;
-        // dd($get_permissions);
-        // $this->selected_user = [
-        //     'id' => $user['id'],
-        //     'fullname' => $user['fullname'],
-        //     'username' => $user['username'],
-        //     'email' => $user['email'],
-        //     'avatar' => $user['avatar'],
-        //     'role' => $get_roles,
-        //     'permission' => $get_permissions,
-        // ];
     }
 
 }
