@@ -114,6 +114,19 @@ class AicsList extends Component
 
     public function saveRecord()
     {
+        $valid = $this->validate([
+            'date' => 'required',
+            'claimant_id' => 'required',
+            'beneficiary_id' => 'required',
+            'relation' => 'required',
+            'assistance_type' => 'required',
+            'amount' => 'required',
+            'amount_type' => 'required',
+            'worker_id' => 'required',
+            'is_active' => 'required',
+            'remarks' => 'required',
+        ]);
+
         if (isset($this->booklet_id)) {
             Assistance::find($this->assistance_id)->update([
                 'date' =>$this->date,
@@ -123,8 +136,6 @@ class AicsList extends Component
                 'assistance_type' =>$this->assistance_type,
                 'amount' =>$this->amount,
                 'amount_type' =>$this->amount_type,
-                // 'referral' =>$this->referral,
-                // 'welfare_agency' =>$this->welfare_agency,
                 'worker_id' =>$this->worker_id,
                 'is_active' =>$this->is_active,
                 'remarks' =>$this->remarks,
@@ -140,8 +151,6 @@ class AicsList extends Component
                 'assistance_type' =>$this->assistance_type,
                 'amount' =>$this->amount,
                 'amount_type' =>$this->amount_type,
-                // 'referral' =>$this->referral,
-                // 'welfare_agency' =>$this->welfare_agency,
                 'worker_id' =>$this->worker_id,
                 'is_active' =>1,
                 'remarks' =>$this->remarks,
