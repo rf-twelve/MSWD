@@ -23,7 +23,9 @@ class User extends Authenticatable
     protected $fillable = [
         'fullname',
         'username',
+        'office_id',
         'email',
+        'is_active',
         'password',
     ];
 
@@ -45,6 +47,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isActivated()
+    {
+        return $this->is_active; // Assuming 'isActivated' is a boolean attribute in the User model
+    }
 
 
 

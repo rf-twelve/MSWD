@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\NotActive;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Dts\DocumentOverview;
 use App\Http\Livewire\Mswd\AicsList;
@@ -62,9 +63,10 @@ Route::get('/permission_add', function () {
 Route::get('/', Login::class)->name('login');
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
+Route::get('/not-activated', NotActive::class)->name('not-active');
 
 // For grouping prefix and middleware
-Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
+Route::group(['prefix' => 'user',  'middleware' => ['auth', 'is_active']], function()
 {
     Route::get('{user_id}/dashboard', UserDashboard::class)->name('user-dashboard');
 
