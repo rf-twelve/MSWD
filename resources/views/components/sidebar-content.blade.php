@@ -129,7 +129,7 @@
         <div class="mt-8 text-center bg-blue-100">
             <!-- Secondary navigation -->
             <h3 class="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase"
-                id="desktop-teams-headline">ZELEKTRONICA 2023 v2</h3>
+                id="desktop-teams-headline">LGU KLAIBO - MSWD 2023</h3>
 
         </div>
         {{-- <div class="mt-8">
