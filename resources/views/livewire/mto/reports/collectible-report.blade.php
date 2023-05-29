@@ -1,3 +1,0 @@
-<div>
-    COLLECTIBLE REPORT
-</div>

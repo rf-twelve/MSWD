@@ -3,7 +3,6 @@
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Dts\DocumentOverview;
-use App\Http\Livewire\Dts\PrivacyPolicy;
 use App\Http\Livewire\Mswd\AicsList;
 use App\Http\Livewire\Mswd\AicsPrintList;
 use App\Http\Livewire\Mswd\AicsView;
@@ -16,7 +15,6 @@ use App\Http\Livewire\Mswd\ReferralPrintList;
 use App\Http\Livewire\Mswd\ReferralView;
 use App\Http\Livewire\Mswd\Reports\AddCapital;
 use App\Http\Livewire\Mswd\Reports\Burial;
-use App\Http\Livewire\Mswd\Reports\Child;
 use App\Http\Livewire\Mswd\Reports\Education;
 use App\Http\Livewire\Mswd\Reports\Fire;
 use App\Http\Livewire\Mswd\Reports\HouseRepair;
@@ -32,12 +30,10 @@ use App\Http\Livewire\User\Dashboard as UserDashboard;
 use Illuminate\Support\Facades\Route;
 
 ## Rpt
-use App\Http\Livewire\Rpt\Account;
 use App\Http\Livewire\Settings\CompanyProfile;
 use App\Http\Livewire\Settings\ProfileSettings;
 use App\Http\Livewire\Settings\UsersManagement;
-use App\Http\Livewire\Settings\Users as UserSettings;
-use App\Models\Strandee;
+
 use App\Models\User;
 
 /*
@@ -61,7 +57,7 @@ Route::get('/permission_add', function () {
     $user->givePermissionTo(2);
 });
 
-Route::get('/privacy-policy', PrivacyPolicy::class)->name('Privacy Policy');
+// Route::get('/privacy-policy', PrivacyPolicy::class)->name('Privacy Policy');
 
 Route::get('/', Login::class)->name('login');
 Route::get('/login', Login::class)->name('login');
@@ -110,6 +106,6 @@ Route::get('/home', Register::class)->name('Register');
 
 Route::group(['prefix' => 'admin',  'middleware' => 'admin'], function()
 {
-    Route::get('{user_id}/dashboard', DocumentOverview::class)->name('Admin Dashboard');
+    // Route::get('{user_id}/dashboard', DocumentOverview::class)->name('Admin Dashboard');
 
 });

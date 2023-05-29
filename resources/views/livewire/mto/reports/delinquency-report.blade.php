@@ -1,3 +1,0 @@
-<div>
-    DELINQUENCY REPORT
-</div>

@@ -1,3 +1,0 @@
-<div>
-    LOCALITY SETTINGS
-</div>

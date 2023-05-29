@@ -1,3 +1,0 @@
-<div>
-    COLLECTION AND DEPOSIT REPORT
-</div>
