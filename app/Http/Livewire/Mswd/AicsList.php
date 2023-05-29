@@ -123,8 +123,8 @@ class AicsList extends Component
             'amount' => 'required',
             'amount_type' => 'required',
             'worker_id' => 'required',
-            'is_active' => 'required',
-            'remarks' => 'required',
+            // 'is_active' => 'required',
+            'remarks' => 'nullable',
         ]);
 
         if (isset($this->booklet_id)) {
