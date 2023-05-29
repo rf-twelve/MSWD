@@ -123,40 +123,26 @@ class AicsList extends Component
             'amount' => 'required',
             'amount_type' => 'required',
             'worker_id' => 'required',
-            // 'is_active' => 'required',
             'remarks' => 'nullable',
         ]);
 
-        if (isset($this->booklet_id)) {
-            Assistance::find($this->assistance_id)->update([
-                'date' =>$this->date,
-                'claimant_id' =>$this->claimant_id,
-                'beneficiary_id' =>$this->beneficiary_id,
-                'relation' =>$this->relation,
-                'assistance_type' =>$this->assistance_type,
-                'amount' =>$this->amount,
-                'amount_type' =>$this->amount_type,
-                'worker_id' =>$this->worker_id,
-                'is_active' =>$this->is_active,
-                'remarks' =>$this->remarks,
-            ]);
-            $this->notify('You\'ve update record successfully.');
-        } else {
-            Assistance::create([
-                'date' =>$this->date,
-                'class' => 'aics',
-                'claimant_id' =>$this->claimant_id,
-                'beneficiary_id' =>$this->beneficiary_id,
-                'relation' =>$this->relation,
-                'assistance_type' =>$this->assistance_type,
-                'amount' =>$this->amount,
-                'amount_type' =>$this->amount_type,
-                'worker_id' =>$this->worker_id,
-                'is_active' =>1,
-                'remarks' =>$this->remarks,
-            ]);
-            $this->notify('You\'ve save record successfully.');
-        }
+        $data = [
+            'date' =>$valid['date'],
+            'claimant_id' =>$valid['claimant_id'],
+            'beneficiary_id' =>$valid['beneficiary_id'],
+            'relation' =>$valid['relation'],
+            'assistance_type' =>$valid['assistance_type'],
+            'amount' =>$valid['amount'],
+            'amount_type' =>$valid['amount_type'],
+            'worker_id' =>$valid['worker_id'],
+            'remarks' =>$valid['remarks'],
+        ];
+
+        isset($this->booklet_id)
+            ? Assistance::find($this->assistance_id)->update($data)
+            : Assistance::create($data);
+
+        $this->notify('You\'ve save record successfully.');
         $this->resetFields();
         $this->showFormModal = false;
     }

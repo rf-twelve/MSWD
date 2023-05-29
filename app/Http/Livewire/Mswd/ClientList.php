@@ -127,8 +127,9 @@ class ClientList extends Component
             'encoder_id' => auth()->user()->id,
         ];
 
-        isset($this->client_id) ? Client::find($this->client_id)->update($data)
-                                        : Client::create($data);
+        isset($this->client_id)
+            ? Client::find($this->client_id)->update($data)
+            : Client::create($data);
 
         $this->notify('You\'ve save record successfully.');
         $this->resetFields();
