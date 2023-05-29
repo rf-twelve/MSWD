@@ -8,7 +8,6 @@ use App\Http\Livewire\DataTable\WithPerPagePagination;
 use App\Http\Livewire\DataTable\WithBulkActions;
 use App\Http\Livewire\DataTable\WithCachedRows;
 use App\Models\Assistance;
-use App\Models\Client;
 use Livewire\WithFileUploads;
 
 ## Manage booklets only(Amounts and payee not necessary)
@@ -23,6 +22,7 @@ class AicsList extends Component
     public $beneficiary_id;
     public $relation;
     public $assistance_type;
+    public $class;
     public $amount;
     public $amount_type;
     public $referral;
@@ -31,20 +31,20 @@ class AicsList extends Component
     public $remarks;
 
     ## Client variables
-    public $clients = [];
-    public $first_name;
-    public $middle_name;
-    public $last_name;
-    public $birthdate;
-    public $gender;
-    public $photo;
-    public $category;
-    public $lot_blk_no;
-    public $street;
-    public $barangay;
-    public $contact;
-    public $email;
-    public $remarks_client;
+    // public $clients = [];
+    // public $first_name;
+    // public $middle_name;
+    // public $last_name;
+    // public $birthdate;
+    // public $gender;
+    // public $photo;
+    // public $category;
+    // public $lot_blk_no;
+    // public $street;
+    // public $barangay;
+    // public $contact;
+    // public $email;
+    // public $remarks_client;
 
 
     ## Modal initialize
@@ -62,13 +62,14 @@ class AicsList extends Component
         'date-max' => null,
     ];
 
-    public function mount(){
-        $this->clients = Client::get();
-    }
+    // public function mount(){
+    //     $this->clients = Client::get();
+    // }
 
     public function getRowsQueryProperty()
     {
         return Assistance::query()
+            ->with('claimant','beneficiary')
             ->when($this->filters['search'], fn($query, $search) => $query->where($this->filters['sort-field'], 'like','%'.$search.'%'))
             ->orderBy($this->filters['sort-field'], $this->filters['sort-direction']);
     }
@@ -122,8 +123,8 @@ class AicsList extends Component
                 'assistance_type' =>$this->assistance_type,
                 'amount' =>$this->amount,
                 'amount_type' =>$this->amount_type,
-                'referral' =>$this->referral,
-                'welfare_agency' =>$this->welfare_agency,
+                // 'referral' =>$this->referral,
+                // 'welfare_agency' =>$this->welfare_agency,
                 'worker_id' =>$this->worker_id,
                 'is_active' =>$this->is_active,
                 'remarks' =>$this->remarks,
@@ -132,16 +133,17 @@ class AicsList extends Component
         } else {
             Assistance::create([
                 'date' =>$this->date,
+                'class' => 'aics',
                 'claimant_id' =>$this->claimant_id,
                 'beneficiary_id' =>$this->beneficiary_id,
                 'relation' =>$this->relation,
                 'assistance_type' =>$this->assistance_type,
                 'amount' =>$this->amount,
                 'amount_type' =>$this->amount_type,
-                'referral' =>$this->referral,
-                'welfare_agency' =>$this->welfare_agency,
+                // 'referral' =>$this->referral,
+                // 'welfare_agency' =>$this->welfare_agency,
                 'worker_id' =>$this->worker_id,
-                'is_active' =>$this->is_active,
+                'is_active' =>1,
                 'remarks' =>$this->remarks,
             ]);
             $this->notify('You\'ve save record successfully.');
@@ -150,7 +152,7 @@ class AicsList extends Component
         $this->showFormModal = false;
     }
 
-    public function closeBookletRecord()
+    public function closeRecord()
     {
         $this->showFormModal = false;
         $this->resetFields();
@@ -205,52 +207,5 @@ class AicsList extends Component
         $this->worker_id = '';
         $this->remarks = '';
     }
-
-    // public function UpdatedBeginQty()
-    // {
-    //     if ($this->booklet_id == null) {
-    //         if ($this->begin_serial_fr != "" && $this->begin_serial_fr > 0) {
-    //             $this->begin_serial_to = ($this->begin_serial_fr + $this->begin_qty) - 1;
-    //         } elseif ($this->begin_serial_to != "" && $this->begin_serial_to > 0) {
-    //             $this->begin_serial_fr = ($this->begin_serial_to - $this->begin_qty) + 1;
-    //         }
-    //         $this->initializeFields();
-    //     }
-
-    // }
-
-    // public function UpdatedBeginSerialFr()
-    // {
-    //     if ($this->booklet_id == null) {
-    //         if ($this->begin_qty != "" && $this->begin_qty > 0) {
-    //             $this->begin_serial_to = ($this->begin_serial_fr + $this->begin_qty) - 1;
-    //         } elseif ($this->begin_serial_to != "" && $this->begin_serial_to > 0) {
-    //             $this->begin_qty = ($this->begin_serial_to - $this->begin_serial_fr) + 1;
-    //         }
-    //         $this->initializeFields();
-    //     }
-    // }
-
-    // public function UpdatedBeginSerialTo()
-    // {
-    //     if ($this->booklet_id == null) {
-    //         if ($this->begin_qty != "" && $this->begin_qty > 0) {
-    //             $this->begin_serial_fr = ($this->begin_serial_to - $this->begin_qty) + 1;
-    //         } elseif ($this->begin_serial_fr != "" && $this->begin_serial_fr > 0) {
-    //             $this->begin_qty = ($this->begin_serial_to - $this->begin_serial_fr) + 1;
-    //         }
-    //         $this->initializeFields();
-    //     }
-    // }
-
-    // public function initializeFields()
-    // {
-    //     $this->issued_qty = 0;
-    //     $this->issued_serial_fr = 0;
-    //     $this->issued_serial_to = 0;
-    //     $this->end_qty = $this->begin_qty;
-    //     $this->end_serial_fr = $this->begin_serial_fr;
-    //     $this->end_serial_to = $this->begin_serial_to;
-    // }
 
 }

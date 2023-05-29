@@ -31,9 +31,9 @@
                     </li>
                 </x-topbar-desktop>
 
-                <x-dashboard.docs-stats />
+                {{-- <x-dashboard.docs-stats /> --}}
                 <x-dashboard.aics-stats />
-                <x-dashboard.referral-stats />
+                {{-- <x-dashboard.referral-stats /> --}}
 
             </main>
         </div>

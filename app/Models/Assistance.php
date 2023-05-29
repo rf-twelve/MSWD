@@ -61,5 +61,6 @@ class Assistance extends Model
     ];
 
     public function claimant():BelongsTo {return $this->belongsTo(Client::class, 'claimant_id', 'id');}
-    public function benefeciary():BelongsTo {return $this->belongsTo(Client::class, 'benefeciary_id', 'id');}
+    public function beneficiary():BelongsTo {return $this->belongsTo(Client::class, 'beneficiary_id', 'id');}
+    public function worker():BelongsTo {return $this->belongsTo(User::class, 'worker_id', 'id');}
 }

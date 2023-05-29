@@ -35,7 +35,7 @@
             <option value="Child">Child</option>
             <option value="PWD">PWD</option>
             <option value="Senior Citizen">Senior Citizen</option>
-            <option value="Senior Citizen">N/A</option>
+            <option value="N/A">N/A</option>
         </x-select>
         @error('category')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
     </div>
@@ -43,6 +43,11 @@
         <label for="lot_blk_no" class="text-sm">Lot/Blk no. :</label>
         <x-input wire:model.lazy="lot_blk_no" id="lot_blk_no" type="text"/>
         @error('lot_blk_no')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
+    </div>
+    <div class="space-y-1 sm:col-span-2">
+        <label for="street" class="text-sm">Street :</label>
+        <x-input wire:model.lazy="street" id="street" type="text"/>
+        @error('street')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
     </div>
     <div class="space-y-1 sm:col-span-2">
         <label for="barangay" class="text-sm">Barangay :</label>

@@ -9,8 +9,46 @@
             <x-slot name="label">
                 <p class="font-medium text-gray-900">AICS</p>
                 <p class="text-gray-500">
-                    0
-                    {{-- {{ number_format(App\Models\MaoAssmtRoll::count(), 0, '.', ',') }} --}}
+                    {{ number_format(App\Models\Assistance::count(), 0, '.', ',') }}
+                </p>
+            </x-slot>
+            <x-slot name="content">
+            </x-slot>
+        </x-dashboard.stats>
+        <x-dashboard.stats>
+            <x-slot name="icon">
+                <x-icon.folder-open class="flex-shrink-0 w-6 h-6 text-white" />
+            </x-slot>
+            <x-slot name="label">
+                <p class="font-medium text-gray-900">CLIENT</p>
+                <p class="text-gray-500">
+                    {{ number_format(App\Models\Client::count(), 0, '.', ',') }}
+                </p>
+            </x-slot>
+            <x-slot name="content">
+            </x-slot>
+        </x-dashboard.stats>
+        <x-dashboard.stats>
+            <x-slot name="icon">
+                <x-icon.folder-open class="flex-shrink-0 w-6 h-6 text-white" />
+            </x-slot>
+            <x-slot name="label">
+                <p class="font-medium text-gray-900">REFERRAL</p>
+                <p class="text-gray-500">
+                    {{ number_format(App\Models\Referral::count(), 0, '.', ',') }}
+                </p>
+            </x-slot>
+            <x-slot name="content">
+            </x-slot>
+        </x-dashboard.stats>
+        <x-dashboard.stats>
+            <x-slot name="icon">
+                <x-icon.folder-open class="flex-shrink-0 w-6 h-6 text-white" />
+            </x-slot>
+            <x-slot name="label">
+                <p class="font-medium text-gray-900">STRANDEE</p>
+                <p class="text-gray-500">
+                    {{ number_format(App\Models\Strandee::count(), 0, '.', ',') }}
                 </p>
             </x-slot>
             <x-slot name="content">

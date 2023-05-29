@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-1 mt-1 overflow-y-auto bg-blue-500">
+<div class="flex flex-col flex-1 mt-1 overflow-y-auto bg-purple-600">
     <!-- User account dropdown -->
     <div x-data="{userDropdown:false}" class="relative inline-block px-3 my-1 text-left">
         <div>
@@ -47,7 +47,7 @@
         <div>
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <a href="{{ route('user-dashboard',['user_id'=>Auth::user()->id])  }}"
-                class="flex items-center w-full py-2 pl-2 text-sm font-medium text-blue-700 bg-blue-200 rounded-md group">
+                class="flex items-center w-full py-2 pl-2 text-sm font-medium text-purple-700 bg-purple-200 rounded-md group">
                 <x-icon.home class="flex-shrink-0 w-6 h-6 mr-3" />
                 DASHBOARD
             </a>
@@ -56,7 +56,7 @@
         <div class="space-y-1">
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <button type="button"
-                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-blue-700 bg-blue-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-purple-700 bg-purple-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-controls="sub-menu-4" aria-expanded="false">
                 <x-icon.document class="flex-shrink-0 w-6 h-6 mr-3" />
                 <span class="flex-1"> MSWD </span>
@@ -64,36 +64,43 @@
                 <x-icon.arrow-head class="flex-shrink-0 w-5 h-5 ml-3 text-gray-300 transition-colors duration-150 ease-in-out transform rotate-90 group-hover:text-gray-400"/>
             </button>
             <!-- Expandable link section, show/hide based on state. -->
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mswd/client-list',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
-                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> CLIENTS</span></a>
-            </div>
+
             <div class="space-y-1" id="sub-menu-4">
                 <a href="{{ route('mswd/aics-list',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> AICS</span></a>
             </div>
             <div class="space-y-1" id="sub-menu-4">
+                <a href="{{ route('mswd/client-list',['user_id'=>Auth::user()->id]) }}"
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
+                <span class="flex-1"> CLIENTS</span></a>
+            </div>
+            <div class="space-y-1" id="sub-menu-4">
                 <a href="{{ route('mswd/referral-list',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> REFERRAL </span></a>
             </div>
             <div class="space-y-1" id="sub-menu-4">
                 <a href="{{ route('mswd/mswd-reports',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> REPORTS </span></a>
+            </div>
+            <div class="space-y-1" id="sub-menu-4">
+                <a href="{{ route('mswd/strandee-list',['user_id'=>Auth::user()->id]) }}"
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
+                <span class="flex-1"> STRANDEE</span></a>
             </div>
         </div>
 
         <div class="space-y-1">
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <button type="button"
-                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-blue-700 bg-blue-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-purple-700 bg-purple-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-controls="sub-menu-4" aria-expanded="false">
                 <x-icon.settings class="flex-shrink-0 w-6 h-6 mr-3" />
                 <span class="flex-1"> Settings </span>
@@ -104,7 +111,7 @@
             <div class="space-y-1" id="sub-menu-4">
 
                 <a href="{{ route('user-management',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.users class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> User Management </span></a>
 
@@ -112,7 +119,7 @@
             <div class="space-y-1" id="sub-menu-4">
 
                 <a href="{{ route('company-profile',['user_id'=>Auth::user()->id]) }}"
-                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-blue-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.users class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> Company Profile </span></a>
 

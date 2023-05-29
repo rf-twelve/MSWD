@@ -40,6 +40,11 @@
                                 placeholder="Search" placeholder="Type any keyword..." type="search" />
                         </div>
                     </div>
+                    <a target="_blank"
+                        href="{{ route('mswd/aics/print-list/all',['user_id'=>auth()->user()->id]) }}"
+                        class="flex ml-3 text-indigo-600 hover:text-indigo-900">
+                        <x-icon.printer class="w-5 h-5" /><span class="text-sm">Print List</span>
+                    </a>
                 </div>
                 <div class="flex justify-between px-2 my-2 space-x-2">
                     <div>
@@ -85,7 +90,7 @@
                         <x-table>
                             <x-slot name="head">
                                 <x-table.head class="px-2 py-1">
-                                    <x-checkbox wire:model="selectPage" />
+                                    {{-- <x-checkbox wire:model="selectPage" /> --}}
                                 </x-table.head>
                                 {{-- <x-table.head class="px-2 py-1" sortable wire:click="sortBy('date')"
                                     :direction="$filters['sort-field'] === 'date' ? $filters['sort-direction'] : null">
@@ -104,7 +109,7 @@
                                     Relationship
                                 </x-table.head>
                                 <x-table.head class="px-2 py-1">
-                                    Case Study
+                                    Assistance
                                 </x-table.head>
                                 <x-table.head class="px-2 py-1">
                                     Amount
@@ -123,8 +128,6 @@
                                 </x-table.head>
                                 <x-table.head class="px-2 py-1">
                                     Remarks
-                                </x-table.head>
-                                <x-table.head class="w-10 px-6 py-1">
                                 </x-table.head>
                             </x-slot>
 
@@ -148,20 +151,37 @@
 
                                 @forelse ($records as $item)
                                 <x-table.row wire:loading.class.delay="opacity-50" wire:key="row-{{ $item->id }}" class="text-gray-600 hover:bg-blue-100">
-                                    <x-table.cell class="w-6 pl-2 pr-0">
-                                        <x-checkbox wire:model="selected" value="{{ $item->id }}" />
-                                    </x-table.cell>
-                                    <x-table.cell class="flex space-y-2">
-                                        <span>{{ $item->date }}</span>
+                                    <x-table.cell class="max-w-2xl">
+                                        <div class="flex justify-center space-x-2">
+                                            <x-button class="px-2 rounded-xl hover:text-white hover:bg-blue-500" wire:click="toggleViewRecordModal({{ $item->id }})">
+                                                <x-icon.view class="w-5 h-5" />
+                                            </x-button>
+
+                                            <x-button class="px-2 rounded-xl hover:text-white hover:bg-red-500" wire:click="toggleDeleteSingleRecordModal({{ $item->id }})">
+                                                <x-icon.trash class="w-5 h-5" />
+                                            </x-button>
+                                        </div>
                                     </x-table.cell>
                                     <x-table.cell>
-                                        <span>{{ $item->claimant_id }}</span>
+                                        <span>
+                                            {{
+                                            $item->claimant['first_name'].' '.
+                                            $item->claimant['middle_name'].' '.
+                                            $item->claimant['last_name']
+                                            }}
+                                        </span>
                                     </x-table.cell>
                                     <x-table.cell>
-                                        <span>{{"Barangay" }}</span>
+                                        <span>{{ $item->claimant['barangay'] }}</span>
                                     </x-table.cell>
                                     <x-table.cell>
-                                        <span>{{ $item->beneficiary_id }}</span>
+                                        <span>
+                                            {{
+                                            $item->beneficiary['first_name'].' '.
+                                            $item->beneficiary['middle_name'].' '.
+                                            $item->beneficiary['last_name']
+                                            }}
+                                        </span>
                                     </x-table.cell>
                                     <x-table.cell>
                                         <span>{{ $item->relation }}</span>
@@ -173,10 +193,10 @@
                                         <span>{{ $item->amount }}</span>
                                     </x-table.cell>
                                     <x-table.cell>
-                                        <span>{{ 'Contact' }}</span>
+                                        {{-- <span>{{  $item->claimant['contact'] }}</span> --}}
                                     </x-table.cell>
                                     <x-table.cell>
-                                        <span>{{ $item->worker_id }}</span>
+                                        <span>{{ $item->worker['fullname']}}</span>
                                     </x-table.cell>
                                     <x-table.cell>
                                         <span>{{ $item->date_released }}</span>
@@ -187,20 +207,7 @@
                                     <x-table.cell>
                                         <span>{{ $item->remarks }}</span>
                                     </x-table.cell>
-                                    <x-table.cell class="max-w-2xl">
-                                        <div class="flex justify-center space-x-2">
 
-                                            {{-- VIEW --}}
-                                            <x-button class="px-2 rounded-xl hover:text-white hover:bg-blue-500" wire:click="toggleViewRecordModal({{ $item->id }})">
-                                                <x-icon.view class="w-5 h-5" />
-                                            </x-button>
-
-                                            {{-- DELETE --}}
-                                            <x-button class="px-2 rounded-xl hover:text-white hover:bg-red-500" wire:click="toggleDeleteSingleRecordModal({{ $item->id }})">
-                                                <x-icon.trash class="w-5 h-5" />
-                                            </x-button>
-                                        </div>
-                                    </x-table.cell>
                                 </x-table.row>
                                 @empty
                                 <x-table.row wire:loading.class.delay="opacity-50">
@@ -246,10 +253,10 @@
                 </x-slot>
 
                 <x-slot name="footer">
-                    <x-button wire:click="closeBookletRecord()" type="button" class="text-white bg-gray-400 hover:bg-gray-500">
+                    <x-button wire:click="closeRecord()" type="button" class="text-white bg-gray-400 hover:bg-gray-500">
                         {{ __('Cancel') }}
                     </x-button>
-                    <x-button wire:click="saveBookletRecord()" type="button" class="hover:bg-blue-500 hover:text-white">
+                    <x-button wire:click="saveRecord()" type="button" class="hover:bg-blue-500 hover:text-white">
                         {{ __('Save') }}
                     </x-button>
                 </x-slot>

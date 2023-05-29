@@ -38,7 +38,7 @@
     </div>
 
     <div class="space-y-1 sm:col-span-2">
-        <label for="assistance_type" class="text-sm">Case Study :</label>
+        <label for="assistance_type" class="text-sm">Assistance :</label>
         <x-select wire:model.lazy="assistance_type" id="assistance_type" class="w-full border">
             <option value="">-Select value-</option>
             @foreach (App\Models\Assistance::AssistanceType as $key => $value)
@@ -48,7 +48,7 @@
         @error('assistance_type')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
     </div>
 
-    <div class="space-y-1 sm:col-span-2">
+    {{-- <div class="space-y-1 sm:col-span-2">
         <label for="assistance_class" class="text-sm">Classification :</label>
         <x-select wire:model.lazy="assistance_class" id="assistance_class" class="w-full border">
             <option value="">-Select value-</option>
@@ -57,34 +57,34 @@
             @endforeach
         </x-select>
         @error('assistance_class')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
-    </div>
+    </div> --}}
     <div class="space-y-1 sm:col-span-2">
         <label for="amount" class="text-sm">Amount :</label>
         <x-input wire:model.lazy="amount" id="amount" type="text" placeholder="Enter value ex. 123"/>
         @error('amount')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
     </div>
     <div class="space-y-1 sm:col-span-2">
-        <label for="assistance_class" class="text-sm">Ammount Type :</label>
-        <x-select wire:model.lazy="assistance_class" id="assistance_class" class="w-full border">
+        <label for="amount_type" class="text-sm">Ammount Type :</label>
+        <x-select wire:model.lazy="amount_type" id="amount_type" class="w-full border">
             <option value="">-Select value-</option>
             @foreach (App\Models\Assistance::AmountType as $key => $value)
                 <option value="{{$value}}">{{ $value }}</option>
             @endforeach
         </x-select>
-        @error('assistance_class')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
+        @error('amount_type')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
     </div>
-    <div class="space-y-1 sm:col-span-2">
+    {{-- <div class="space-y-1 sm:col-span-2">
         <label for="referral" class="text-sm">Referral :</label>
         <x-input wire:model.lazy="referral" id="referral" type="text" placeholder="Enter value ex. 123"/>
         @error('referral')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
-    </div>
-    <div class="space-y-1 sm:col-span-2">
+    </div> --}}
+    {{-- <div class="space-y-1 sm:col-span-2">
         <label for="welfare_agency" class="text-sm">Welfare Agency :</label>
         <x-input wire:model.lazy="welfare_agency" id="welfare_agency" type="text" placeholder="Enter value ex. 123"/>
         @error('welfare_agency')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
-    </div>
+    </div> --}}
     <div class="space-y-1 sm:col-span-2">
-        <label for="worker_id" class="text-sm">Benefeciary :</label>
+        <label for="worker_id" class="text-sm">Worker :</label>
         <x-select wire:model.lazy="worker_id" id="worker_id" class="w-full border">
             <option value="">-Select Worker-</option>
             @foreach (App\Models\User::get() as $key => $value)

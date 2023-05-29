@@ -5,11 +5,14 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Dts\DocumentOverview;
 use App\Http\Livewire\Dts\PrivacyPolicy;
 use App\Http\Livewire\Mswd\AicsList;
+use App\Http\Livewire\Mswd\AicsPrintList;
 use App\Http\Livewire\Mswd\AicsView;
 use App\Http\Livewire\Mswd\ClientList;
+use App\Http\Livewire\Mswd\ClientPrintList;
 use App\Http\Livewire\Mswd\ClientView;
 use App\Http\Livewire\Mswd\MswdReports;
 use App\Http\Livewire\Mswd\ReferralList;
+use App\Http\Livewire\Mswd\ReferralPrintList;
 use App\Http\Livewire\Mswd\ReferralView;
 use App\Http\Livewire\Mswd\Reports\AddCapital;
 use App\Http\Livewire\Mswd\Reports\Burial;
@@ -21,6 +24,10 @@ use App\Http\Livewire\Mswd\Reports\Medical;
 use App\Http\Livewire\Mswd\Reports\PersonWithDisability;
 use App\Http\Livewire\Mswd\Reports\SeniorCitizen;
 use App\Http\Livewire\Mswd\Reports\Transpo;
+use App\Http\Livewire\Mswd\StrandeeList;
+use App\Http\Livewire\Mswd\StrandeePrint;
+use App\Http\Livewire\Mswd\StrandeePrintList;
+use App\Http\Livewire\Mswd\StrandeeView;
 use App\Http\Livewire\User\Dashboard as UserDashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +37,7 @@ use App\Http\Livewire\Settings\CompanyProfile;
 use App\Http\Livewire\Settings\ProfileSettings;
 use App\Http\Livewire\Settings\UsersManagement;
 use App\Http\Livewire\Settings\Users as UserSettings;
-use App\Models\MaoAssmtRoll;
+use App\Models\Strandee;
 use App\Models\User;
 
 /*
@@ -68,10 +75,17 @@ Route::group(['prefix' => 'user',  'middleware' => 'auth'], function()
     ## MSWD
     Route::get('{user_id}/mswd/aics-list', AicsList::class)->name('mswd/aics-list');
     Route::get('{user_id}/mswd/aics/{id}', AicsView::class)->name('mswd/aics/');
+    Route::get('{user_id}/mswd/aics/print-list/all', [AicsPrintList::class, 'print'])->name('mswd/aics/print-list/all');
     Route::get('{user_id}/mswd/client-list', ClientList::class)->name('mswd/client-list');
-    Route::get('{user_id}/mswd/client/{id}', ClientView::class)->name('mswd/client/');
+    Route::get('{user_id}/mswd/client/{id}', ClientView::class)->name('mswd/client');
+    Route::get('{user_id}/mswd/client/print-list/all', [ClientPrintList::class, 'print'])->name('mswd/client/print-list/all');
     Route::get('{user_id}/mswd/referral-list', ReferralList::class)->name('mswd/referral-list');
-    Route::get('{user_id}/mswd/referral/{id}', ReferralView::class)->name('mswd/referral/');
+    Route::get('{user_id}/mswd/referral/{id}', ReferralView::class)->name('mswd/referral');
+    Route::get('{user_id}/mswd/referral/print-list/all', [ReferralPrintList::class, 'print'])->name('mswd/referral/print-list/all');
+    Route::get('{user_id}/mswd/strandee-list', StrandeeList::class)->name('mswd/strandee-list');
+    Route::get('{user_id}/mswd/strandee/{id}', StrandeeView::class)->name('mswd/strandee');
+    Route::get('{user_id}/mswd/strandee/print/{id}', [StrandeePrint::class, 'print'])->name('mswd/strandee/print');
+    Route::get('{user_id}/mswd/strandee/print-list/all', [StrandeePrintList::class, 'print'])->name('mswd/strandee/print-list/all');
     ## REPORTS
     Route::get('{user_id}/mswd/mswd-reports', MswdReports::class)->name('mswd/mswd-reports');
     Route::get('{user_id}/mswd/mswd-reports/add-capital', AddCapital::class)->name('mswd/mswd-reports/add-capital');

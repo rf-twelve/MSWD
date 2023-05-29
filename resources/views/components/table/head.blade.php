@@ -3,7 +3,7 @@
     'direction' => null,
 ])
 
-<th {{ $attributes->merge(['class'=>'text-lg uppercase text-white bg-blue-600'])}}>
+<th {{ $attributes->merge(['class'=>'text-lg uppercase text-white bg-purple-600'])}}>
     @unless ($sortable)
         <span class="flex px-3 text-sm font-medium tracking-wider">
             {{ $slot }}

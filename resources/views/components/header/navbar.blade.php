@@ -5,7 +5,7 @@
           <div class="flex-shrink-0">
             {{-- <img class="w-8 h-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-300.svg" alt="Workflow"> --}}
             <div class="flex items-center flex-shrink-0 px-6">
-                <img class="w-auto h-8" src="{{ asset(env('APP_LOGO')) }}" alt="Logo">
+                <img class="w-auto h-8" src="{{ asset('img/users/logo.png') }}" alt="Logo">
                 <span class="flex flex-col flex-1 min-w-0 pl-2">
                     <span class="text-sm font-medium truncate">{{ env('APP_CLIENT') }}</span>
                     <span class="text-sm truncate">{{ env('APP_PROVINCE') }}</span>
@@ -35,7 +35,7 @@
                 </button>
               </div>
 
-              <div @click.away="userDropdown=false" x-show="userDropdown" class="absolute z-10 right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+              <div @click.away="userDropdown=false" x-show="userDropdown" class="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <a onclick="window.open('{{ route('profile-settings',['user_id'=>Auth::user()->id]) }}','_blank')" href="#"
                     class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                     id="options-menu-item-0">View profile</a>

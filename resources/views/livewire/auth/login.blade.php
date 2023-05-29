@@ -38,7 +38,7 @@
             </div> --}}
 
             <div class="text-sm">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a href="#" class="font-medium text-fuchsia-600 hover:text-fuchsia-500">
                     Forgot your password?
                 </a>
             </div>
@@ -46,13 +46,13 @@
 
         <div>
             <button type="submit"
-                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent shadow-sm rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent shadow-sm bg-fuchsia-600 rounded-xl hover:bg-fuchsia-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 Login
             </button>
         </div>
     </form>
     <div class="flex items-center justify-center py-4">
-        <a href="{{route('register')}}" class="font-medium text-indigo-600 hover:text-indigo-500">
+        <a href="{{route('register')}}" class="font-medium text-fuchsia-600 hover:text-fuchsia-500">
             Don't have an account yet? Sign Up!
         </a>
     </div>
