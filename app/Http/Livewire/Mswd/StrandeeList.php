@@ -17,6 +17,7 @@ class StrandeeList extends Component
     use WithPerPagePagination, WithBulkActions, WithCachedRows, WithFileUploads;
 
     public $strandee_id;
+    public $date;
     public $name;
     public $address;
     public $age;
@@ -94,6 +95,7 @@ class StrandeeList extends Component
     public function saveRecord()
     {
         $valid = $this->validate([
+            'date' => 'required',
             'name' => 'required',
             'address' => 'required',
             'age' => 'required',
@@ -107,6 +109,7 @@ class StrandeeList extends Component
         }
 
         $data = [
+            'date' => $valid['date'],
             'name' => $valid['name'],
             'address' => $valid['address'],
             'age' => $valid['age'],
@@ -161,6 +164,7 @@ class StrandeeList extends Component
     public function setFields($data)
     {
         $this->strandee_id = $data['id'];
+        $this->date = $data['date'];
         $this->name = $data['name'];
         $this->address = $data['address'];
         $this->age = $data['age'];
@@ -175,6 +179,7 @@ class StrandeeList extends Component
     public function resetFields()
     {
         $this->strandee_id = null;
+        $this->date = '';
         $this->name = '';
         $this->address = '';
         $this->age = '';
