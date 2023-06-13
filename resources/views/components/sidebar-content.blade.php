@@ -43,11 +43,11 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 px-2 space-y-1" aria-label="Sidebar">
+    <nav class="flex-1 px-2 space-y-1 uppercase" aria-label="Sidebar">
         <div>
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <a href="{{ route('user-dashboard',['user_id'=>Auth::user()->id])  }}"
-                class="flex items-center w-full py-2 pl-2 text-sm font-medium text-purple-700 bg-purple-200 rounded-md group">
+                class="flex items-center w-full py-2 pl-2 font-semibold text-purple-700 bg-purple-200 rounded-md text-md group hover:text-gray-900 hover:bg-gray-50">
                 <x-icon.home class="flex-shrink-0 w-6 h-6 mr-3" />
                 DASHBOARD
             </a>
@@ -56,7 +56,7 @@
         <div class="space-y-1">
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <button type="button"
-                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-purple-700 bg-purple-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="flex items-center w-full py-2 pl-2 pr-1 font-medium text-left text-purple-700 bg-purple-200 rounded-md text-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-controls="sub-menu-4" aria-expanded="false">
                 <x-icon.document class="flex-shrink-0 w-6 h-6 mr-3" />
                 <span class="flex-1"> MSWD </span>
@@ -65,45 +65,57 @@
             </button>
             <!-- Expandable link section, show/hide based on state. -->
 
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mswd/aics-list',['user_id'=>Auth::user()->id]) }}"
+            <div class="space-y-1 italic" id="sub-menu-4">
+                <a href="{{ route('aics-list',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> AICS</span></a>
             </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mswd/client-list',['user_id'=>Auth::user()->id]) }}"
+            <div class="space-y-1 italic" id="sub-menu-4">
+                <a href="{{ route('client-list',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> CLIENTS</span></a>
             </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mswd/referral-list',['user_id'=>Auth::user()->id]) }}"
+            <div class="space-y-1 italic" id="sub-menu-4">
+                <a href="{{ route('minor-traveling-abroad-list',['user_id'=>Auth::user()->id]) }}"
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
+                <span class="flex-1"> MTA </span></a>
+            </div>
+            <div class="space-y-1 italic" id="sub-menu-4">
+                <a href="{{ route('referral-list',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> REFERRAL </span></a>
             </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mswd/mswd-reports',['user_id'=>Auth::user()->id]) }}"
+            <div class="space-y-1 italic" id="sub-menu-4">
+                <a href="{{ route('mswd-reports',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> REPORTS </span></a>
             </div>
-            <div class="space-y-1" id="sub-menu-4">
-                <a href="{{ route('mswd/strandee-list',['user_id'=>Auth::user()->id]) }}"
+            <div class="space-y-1 italic" id="sub-menu-4">
+                <a href="{{ route('strandee-list',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
                 <span class="flex-1"> STRANDEE</span></a>
             </div>
+            {{-- <div class="space-y-1" id="sub-menu-4">
+                <a href="{{ route('special-case-list',['user_id'=>Auth::user()->id]) }}"
+                    class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
+                    <x-icon.folder-open class="flex-shrink-0 w-5 h-5 mr-1"/>
+                <span class="flex-1"> SPECIAL CASES</span></a>
+            </div> --}}
         </div>
 
         <div class="space-y-1">
             <!-- Current: "bg-gray-100 text-gray-900", Default: "bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
             <button type="button"
-                class="flex items-center w-full py-2 pl-2 pr-1 text-sm font-medium text-left text-purple-700 bg-purple-200 rounded-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                class="flex items-center w-full py-2 pl-2 pr-1 font-medium text-left text-purple-700 bg-purple-200 rounded-md text-md hover:bg-gray-50 hover:text-gray-900 group focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 aria-controls="sub-menu-4" aria-expanded="false">
                 <x-icon.settings class="flex-shrink-0 w-6 h-6 mr-3" />
-                <span class="flex-1"> Settings </span>
+                <span class="flex-1 font-semibold uppercase"> Settings </span>
                 <!-- Expanded: "text-gray-400 rotate-90", Collapsed: "text-gray-300" -->
                 <x-icon.arrow-head class="flex-shrink-0 w-5 h-5 ml-3 text-gray-300 transition-colors duration-150 ease-in-out transform rotate-90 group-hover:text-gray-400"/>
             </button>
@@ -113,7 +125,7 @@
                 <a href="{{ route('user-management',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.users class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> User Management </span></a>
+                <span class="flex-1 italic"> User Management </span></a>
 
             </div>
             <div class="space-y-1" id="sub-menu-4">
@@ -121,7 +133,7 @@
                 <a href="{{ route('company-profile',['user_id'=>Auth::user()->id]) }}"
                     class="flex items-center w-full py-2 pr-2 text-sm font-medium text-purple-100 rounded-md group pl-11 hover:text-gray-900 hover:bg-gray-50">
                     <x-icon.users class="flex-shrink-0 w-5 h-5 mr-1"/>
-                <span class="flex-1"> Company Profile </span></a>
+                <span class="flex-1 italic"> System Config </span></a>
 
             </div>
         </div>
@@ -129,7 +141,7 @@
         <div class="mt-8 text-center bg-blue-100">
             <!-- Secondary navigation -->
             <h3 class="px-3 text-xs font-semibold tracking-wider text-gray-500 uppercase"
-                id="desktop-teams-headline">LGU KLAIBO - MSWD 2023</h3>
+                id="desktop-teams-headline">LGU KALIBO - MSWD 2023</h3>
 
         </div>
         {{-- <div class="mt-8">

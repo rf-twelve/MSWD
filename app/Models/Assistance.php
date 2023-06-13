@@ -63,4 +63,14 @@ class Assistance extends Model
     public function claimant():BelongsTo {return $this->belongsTo(Client::class, 'claimant_id', 'id');}
     public function beneficiary():BelongsTo {return $this->belongsTo(Client::class, 'beneficiary_id', 'id');}
     public function worker():BelongsTo {return $this->belongsTo(User::class, 'worker_id', 'id');}
+
+    public function image_files()
+    {
+        return $this->hasMany(ImageFile::class, 'imageable_id');
+    }
+
+    public function encoderFullname(){
+        $user = User::find($this->encoder_id);
+        return is_null($user) ? 'Unkown' : $user['fullname'];
+    }
 }

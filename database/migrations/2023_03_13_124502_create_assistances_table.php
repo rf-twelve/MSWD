@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('assistances', function (Blueprint $table) {
             $table->id();
+            $table->string('aics_no')->nullable();
             $table->string('date')->nullable();
             $table->string('claimant_id')->nullable();
             $table->string('beneficiary_id')->nullable();

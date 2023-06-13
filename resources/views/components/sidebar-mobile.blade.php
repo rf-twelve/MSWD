@@ -2,7 +2,7 @@
 
     <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
 
-    <div class="relative flex flex-col flex-1 w-full max-w-xs pt-5 pb-4 bg-white">
+    <div class="relative flex flex-col flex-1 w-full max-w-xs pb-4 bg-white">
 
         <div class="absolute top-0 right-0 pt-2 -mr-12">
             <button type="button" x-on:click="openSidebarMobile = false"
@@ -13,10 +13,12 @@
             </button>
         </div>
 
-        <div class="flex items-center flex-shrink-0 px-4">
+        <div class="flex items-center flex-shrink-0 px-4 pt-1.5">
             <img class="w-auto h-8"
-                src="{{ asset(env('APP_LOGO')) }}" alt="Logo">
-                <span class="font-serif font-bold text-1xl">{{ env('APP_CLIENT') }}</span>
+                src="{{ asset('img/users/logo.png') }}" alt="Logo">
+                <span class="pl-2 font-serif text-3xl font-bold">
+                    {{ __('MSWD-AICS') }}
+                </span>
         </div>
 
         <x-sidebar-content />

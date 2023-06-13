@@ -45,7 +45,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/add-capital',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-add-capital',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -62,7 +62,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/burial',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-burial',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -79,7 +79,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/educational',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-educational',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -96,7 +96,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/fire-disaster-victim',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-fire-disaster-victim',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -113,7 +113,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/house-repair',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-house-repair',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -130,7 +130,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/medical',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-medical',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -147,7 +147,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/person-with-disability',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-person-with-disability',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -164,7 +164,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/senior-citizen',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-senior-citizen',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>
@@ -181,7 +181,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="py-1" role="none">
-                                    <a href="{{ route('mswd/mswd-reports/transportation',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
+                                    <a href="{{ route('mswd-reports-transportation',['user_id'=>Auth::user()->id]) }}" class="block px-4 py-2 text-sm text-gray-700">
                                         View
                                     </a>
                                 </div>

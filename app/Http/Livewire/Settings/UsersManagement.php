@@ -30,6 +30,17 @@ class UsersManagement extends Component
     // public $permission_name;
     public $action_array = ['create','read','update','delete','access'];
 
+    public $users;
+    public $user_selected;
+    public $roles;
+
+    public function userSelect($id){
+        $this->user_selected = $this->users->find($id);
+        // dd($this->user_selected);
+    }
+
+
+
     public function render()
     {
         // dd(User::ACTIONS);
@@ -41,14 +52,23 @@ class UsersManagement extends Component
     }
 
     public function mount(){
+        $this->users = User::get();
+        $this->roles = Role::get();
+        $this->user_selected = null;
+
+
         $this->all_users =  User::where('fullname','LIKE','%'."Ad".'%')->get();
-        $this->all_roles =  Role::get();
+        // $this->all_roles =  Role::get();
         // $this->all_permissions =  User::get();
         $this->addRoleModal = false;
         $this->addPermissionModal = false;
         $this->assign_role_confirmation = false;
         $this->assign_permission_confirmation = false;
         $this->selectedUser(($this->all_users->first())['id']);
+    }
+
+    public function rolesSelected($name){
+        dd($name);
     }
 
     // public function updatedSearch(){

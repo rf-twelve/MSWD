@@ -19,4 +19,13 @@ class Client extends Model
             : asset('img/users/avatar.png');
     }
 
+    public function image_files(){
+        return $this->hasMany(ImageFile::class, 'imageable_id');
+    }
+
+    public function encoderFullname(){
+        $user = User::find($this->encoder_id);
+        return is_null($user) ? 'Unkown' : $user['fullname'];
+    }
+
 }

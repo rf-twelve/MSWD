@@ -73,16 +73,6 @@
         </x-select>
         @error('amount_type')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
     </div>
-    {{-- <div class="space-y-1 sm:col-span-2">
-        <label for="referral" class="text-sm">Referral :</label>
-        <x-input wire:model.lazy="referral" id="referral" type="text" placeholder="Enter value ex. 123"/>
-        @error('referral')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
-    </div> --}}
-    {{-- <div class="space-y-1 sm:col-span-2">
-        <label for="welfare_agency" class="text-sm">Welfare Agency :</label>
-        <x-input wire:model.lazy="welfare_agency" id="welfare_agency" type="text" placeholder="Enter value ex. 123"/>
-        @error('welfare_agency')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
-    </div> --}}
     <div class="space-y-1 sm:col-span-2">
         <label for="worker_id" class="text-sm">Worker :</label>
         <x-select wire:model.lazy="worker_id" id="worker_id" class="w-full border">
