@@ -50,11 +50,11 @@
                                 class="block w-full pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 pl-36 lg:pl-32 rounded-xl focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 placeholder="Search" placeholder="Type any keyword..." type="search" />
                             </div>
-                            <a x-on:click="advance_search =! advance_search" href="#"
-                                class="flex ml-3 text-indigo-600 underline hover:text-indigo-900">
-                                <span class="pl-2 text-xs italic underline uppercase">Advance Search</span>
-                            </a>
                         </div>
+                        <a x-on:click="advance_search =! advance_search" href="#"
+                            class="flex ml-3 text-indigo-600 underline hover:text-indigo-900">
+                            <span class="pl-2 text-xs italic underline uppercase">Advance Search</span>
+                        </a>
                     </div>
 
                     <div class="flex justify-between px-2 my-2 space-x-2">
