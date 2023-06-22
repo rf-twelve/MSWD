@@ -38,7 +38,7 @@ class PageReferral extends Component
     public $filters = [
         'search' => '',
         'status' => '',
-        'sort-field' => 'id',
+        'sort-field' => 'date',
         'sort-direction' => 'asc',
         'status' => '',
         'amount-min' => null,
@@ -46,18 +46,37 @@ class PageReferral extends Component
         'date-min' => null,
         'date-max' => null,
     ];
+    public $client = [
+        'first_name' => '',
+        'last_name' => '',
+    ];
+    public $beneficiary = [
+        'first_name' => '',
+        'last_name' => '',
+    ];
 
     public function mount(){
         $this->referral_id = null;
-        $this->clients = Client::get();
-        $this->workers = User::get();
+        $this->clients = Client::select('id','first_name','last_name')->get();
+        $this->workers = User::select('id','fullname')->get();
     }
 
     public function getRowsQueryProperty()
     {
         return Referral::query()
-            ->with('client','beneficiary','worker')
             ->when($this->filters['search'], fn($query, $search) => $query->where($this->filters['sort-field'], 'like','%'.$search.'%'))
+            ->whereHas('client', function($q){
+                $q->where('first_name', 'like','%'.$this->client['first_name'].'%');
+            })
+            ->whereHas('client', function($q){
+                $q->where('last_name', 'like','%'.$this->client['last_name'].'%');
+            })
+            ->whereHas('beneficiary', function($q){
+                $q->where('first_name', 'like','%'.$this->beneficiary['first_name'].'%');
+            })
+            ->whereHas('beneficiary', function($q){
+                $q->where('last_name', 'like','%'.$this->beneficiary['last_name'].'%');
+            })
             ->orderBy($this->filters['sort-field'], $this->filters['sort-direction']);
     }
 

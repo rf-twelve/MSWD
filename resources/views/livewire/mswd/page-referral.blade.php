@@ -26,7 +26,7 @@
                     </div>
                 </li>
             </x-topbar-desktop>
-            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div x-data="{advance_search:false}" class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="sm:flex">
 
                 <div class="flex items-center flex-1 my-2">
@@ -78,18 +78,18 @@
 
                     <div class="mx-2">
                         <label for="cfn" class="block pl-2 text-xs italic font-medium text-gray-700">
-                            Claiman(First Name) :
+                            Client(First Name) :
                         </label>
                         <div class="mt-0">
-                            <x-input wire:model.debounce.500ms="claimant.first_name" id="cfn" type="search" />
+                            <x-input wire:model.debounce.500ms="client.first_name" id="cfn" type="search" />
                         </div>
                     </div>
                     <div class="mx-2">
                         <label for="cln" class="block pl-2 text-xs italic font-medium text-gray-700">
-                            Claiman(Last Name) :
+                            Client(Last Name) :
                         </label>
                         <div class="mt-0">
-                            <x-input wire:model.debounce.500ms="claimant.last_name" id="cln" type="search" />
+                            <x-input wire:model.debounce.500ms="client.last_name" id="cln" type="search" />
                         </div>
                     </div>
                     <div class="mx-2">
@@ -238,10 +238,10 @@
                                         <span>{{ $item['date'] }}</span>
                                     </x-table.cell>
                                     <x-table.cell class="space-y-2">
-                                        <span>{{ $item->client['first_name'] }}</span>
+                                        <span>{{ $item->client['first_name'].' '.$item->client['last_name'] }}</span>
                                     </x-table.cell>
                                     <x-table.cell class="space-y-2">
-                                        <span>{{ $item->beneficiary['first_name'] }}</span>
+                                        <span>{{ $item->beneficiary['first_name'].' '.$item->beneficiary['last_name'] }}</span>
                                     </x-table.cell>
                                     <x-table.cell class="space-y-2">
                                         <span>{{ $item['relation'] }}</span>
