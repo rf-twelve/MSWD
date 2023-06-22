@@ -31,6 +31,8 @@ class PageAics extends Component
     public $prepared_by;
     public $remarks;
     public $clients;
+    public $date_release;
+    public $charges;
     public $users;
 
     ## Modal initialize
@@ -135,6 +137,8 @@ class PageAics extends Component
             'amount' => 'nullable',
             'amount_type' => 'nullable',
             'worker_id' => 'required',
+            'date_release' => 'nullable',
+            'charges' => 'nullable',
             'remarks' => 'nullable',
         ]);
         $valid['aics_no'] = $this->getLatestAicsNo();
@@ -187,6 +191,8 @@ class PageAics extends Component
         $this->amount_type = $data['amount_type'];
         $this->worker_id = $data['worker_id'];
         $this->prepared_by = $data['prepared_by'];
+        $this->date_release = $data['date_release'];
+        $this->charges = $data['charges'];
         $this->remarks = $data['remarks'];
     }
 
@@ -203,6 +209,8 @@ class PageAics extends Component
         $this->amount_type = '';
         $this->worker_id = '';
         $this->prepared_by = '';
+        $this->date_release = '';
+        $this->charges = '';
         $this->remarks = '';
     }
 

@@ -427,6 +427,20 @@
                                 @enderror
                             </div>
                             <div class="space-y-1 sm:col-span-2">
+                                <label for="date_release" class="text-sm">Date Release :</label>
+                                <x-input wire:model.lazy="date_release" id="date_release" type="date"
+                                    placeholder="Enter fullname" />
+                                @error('date_release')<x-comment class="text-red-500">*{{ $message }}</x-comment>
+                                @enderror
+                            </div>
+                            <div class="space-y-1 sm:col-span-2">
+                                <label for="charges" class="text-sm">Charges :</label>
+                                <x-input wire:model.lazy="charges" id="charges" type="text"
+                                    placeholder="Enter fullname" />
+                                @error('charges')<x-comment class="text-red-500">*{{ $message }}</x-comment>
+                                @enderror
+                            </div>
+                            <div class="space-y-1 sm:col-span-2">
                                 <label for="remarks" class="text-sm">Remarks :</label>
                                 <x-form.text-area wire:model.lazy="remarks" id="remarks" rows="4"></x-form.text-area>
                                 @error('remarks')<x-comment class="text-red-500">*{{ $message }}</x-comment>@enderror
