@@ -386,26 +386,6 @@
             </form>
         </div>
 
-        <!-- Delete Single Record Modal -->
-        <div>
-            <form wire:submit.prevent="deleteSelectedRecord">
-                <x-modal.confirmation wire:model.defer="showDeleteSelectedRecordModal" selectedIcon="delete">
-                    <x-slot name="title">Delete Selected Record</x-slot>
-
-                    <x-slot name="content">
-                        <div class="py-8 text-gray-700">Are you sure you? This action is irreversible.</div>
-                    </x-slot>
-
-                    <x-slot name="footer">
-                        <x-button type="button" wire:click.prevent="$set('showDeleteSelectedRecordModal', false)">Cancel</x-button>
-
-                        <x-button type="submit">Delete</x-button>
-                    </x-slot>
-                </x-modal.confirmation>
-            </form>
-        </div>
-
-
         </main>
     </div>
 </div>
