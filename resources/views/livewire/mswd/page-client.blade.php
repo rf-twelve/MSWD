@@ -70,7 +70,7 @@
                     </div>
                     <div class="flex justify-end space-x-1">
                         <div>
-                            <x-select wire:model.debounce.500ms="filters.per-page"  id="perPage">
+                            <x-select wire:model.debounce.500ms="per_page"  id="perPage">
                                 <option value="10">10 / page</option>
                                 <option value="25">25 / page</option>
                                 <option value="50">50 / page</option>
