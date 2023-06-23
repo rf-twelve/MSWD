@@ -8,7 +8,6 @@ use App\Http\Livewire\DataTable\WithPerPagePagination;
 use App\Http\Livewire\DataTable\WithBulkActions;
 use App\Http\Livewire\DataTable\WithCachedRows;
 
-use App\Models\FileImage;
 use App\Models\ImageFile;
 use App\Models\MinorTravelingAbroad;
 

@@ -43,6 +43,7 @@ class PageAics extends Component
         'status' => '',
         'sort-field' => 'aics_no',
         'sort-direction' => 'asc',
+        'per-page' => '10',
         'status' => '',
         'amount-min' => null,
         'amount-max' => null,
