@@ -39,7 +39,7 @@
                             <div class="relative mx-2 rounded-md shadow-sm">
                             <div class="absolute inset-y-0 left-0 flex items-center">
                                 <label for="combo-search" class="sr-only">combo-search</label>
-                                <select wire:model.debounce.500ms="filters.sort-field" id="combo-search" class="h-full py-0 pl-2 pr-2 text-gray-500 bg-transparent border-transparent rounded-md focus:border-transparent sm:text-sm">
+                                <select wire:model.debounce.500ms="filters.sort-field" id="combo-search" class="h-full py-0 pl-2 pr-2 text-gray-500 bg-purple-300 rounded-l-xl focus:border-transparent sm:text-sm">
                                     <option value="date">Date</option>
                                     <option value="name">Name</option>
                                     <option value="birthdate">Birthdate</option>
@@ -50,11 +50,9 @@
                                     <option value="status">Status</option>
                                     <option value="remarks">Remarks</option>
                                 </select>
-                                <x-icon.search class="w-5 h-5 text-gray-500" />
-
                             </div>
                             <x-input wire:model.debounce.500ms="filters.search" id="searchTerm"
-                                class="block w-full pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 pl-36 lg:pl-32 rounded-xl focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                class="block w-full pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 pl-32 rounded-xl focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 sm:text-sm"
                                 placeholder="Search" placeholder="Type any keyword..." type="search" />
                             </div>
                         </div>
@@ -91,31 +89,36 @@
                                     <x-table>
                                         <x-slot name="head" class="uppercase">
                                             <x-table.head class="px-2 py-1">
-                                                {{--
-                                                <x-checkbox wire:model="selectPage" /> --}}
                                             </x-table.head>
                                             <x-table.head class="px-2 py-1">
                                                 MTA NO.
                                             </x-table.head>
-                                            <x-table.head class="px-2 py-1">
+                                            <x-table.head class="px-2 py-1" sortable wire:click="sortBy('date')"
+                                                :direction="$filters['sort-field'] === 'date' ? $filters['sort-direction'] : null">
                                                 DATE
                                             </x-table.head>
-                                            <x-table.head class="px-2 py-1">
+                                            <x-table.head class="px-2 py-1" sortable wire:click="sortBy('name')"
+                                                :direction="$filters['sort-field'] === 'name' ? $filters['sort-direction'] : null">
                                                 FULLNAME
                                             </x-table.head>
-                                            <x-table.head class="px-2 py-1">
+                                            <x-table.head class="px-2 py-1" sortable wire:click="sortBy('birthdate')"
+                                                :direction="$filters['sort-field'] === 'birthdate' ? $filters['sort-direction'] : null">
                                                 BIRTHDATE
                                             </x-table.head>
-                                            <x-table.head class="w-10 px-2 py-1">
+                                            <x-table.head class="w-10 px-2 py-1" sortable wire:click="sortBy('destination')"
+                                                :direction="$filters['sort-field'] === 'destination' ? $filters['sort-direction'] : null">
                                                 DESTINATION
                                             </x-table.head>
-                                            <x-table.head class="w-10 px-2 py-1">
+                                            <x-table.head class="w-10 px-2 py-1" sortable wire:click="sortBy('traveling_companion')"
+                                                :direction="$filters['sort-field'] === 'traveling_companion' ? $filters['sort-direction'] : null">
                                                 TRAVELING COMPANION
                                             </x-table.head>
-                                            <x-table.head class="px-2 py-1">
+                                            <x-table.head class="px-2 py-1" sortable wire:click="sortBy('address')"
+                                                :direction="$filters['sort-field'] === 'address' ? $filters['sort-direction'] : null">
                                                 ADDRESS
                                             </x-table.head>
-                                            <x-table.head class="px-2 py-1">
+                                            <x-table.head class="px-2 py-1" sortable wire:click="sortBy('parents')"
+                                                :direction="$filters['sort-field'] === 'parents' ? $filters['sort-direction'] : null">
                                                 PARENTS
                                             </x-table.head>
                                             <x-table.head class="px-2 py-1">

@@ -39,7 +39,7 @@ class PageMinorTravelingAbroad extends Component
     public $filters = [
         'search' => '',
         'status' => '',
-        'sort-field' => 'id',
+        'sort-field' => 'date',
         'sort-direction' => 'asc',
         'status' => '',
         'amount-min' => null,

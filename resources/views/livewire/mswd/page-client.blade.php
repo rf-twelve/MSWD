@@ -133,8 +133,6 @@
                                 <x-table.head class="px-2 py-1">
                                     Remarks
                                 </x-table.head>
-                                <x-table.head class="w-10 px-6 py-1">
-                                </x-table.head>
                             </x-slot>
 
                             <x-slot name="body">

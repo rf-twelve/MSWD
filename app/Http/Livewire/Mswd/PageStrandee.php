@@ -7,7 +7,6 @@ use Livewire\Component;
 use App\Http\Livewire\DataTable\WithPerPagePagination;
 use App\Http\Livewire\DataTable\WithBulkActions;
 use App\Http\Livewire\DataTable\WithCachedRows;
-use App\Models\Client;
 use App\Models\Strandee;
 use Livewire\WithFileUploads;
 
@@ -34,7 +33,7 @@ class PageStrandee extends Component
      public $filters = [
          'search' => '',
          'status' => '',
-         'sort-field' => 'id',
+         'sort-field' => 'date',
          'sort-direction' => 'asc',
          'status' => '',
          'amount-min' => null,

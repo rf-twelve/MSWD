@@ -5,7 +5,7 @@
 
             <!-- Topbar Desktop -->
             <x-topbar-desktop>
-                <li class="flex">
+                <li class="flex italic uppercase">
                     <div class="flex items-center">
                         <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg"aria-hidden="true">
                             <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
@@ -34,23 +34,25 @@
                         <div class="relative rounded-md shadow-sm">
                         <div class="absolute inset-y-0 left-0 flex items-center">
                             <label for="combo-search" class="sr-only">combo-search</label>
-                            <select wire:model.debounce.500ms="filters.sort-field" id="combo-search" class="h-full py-0 pl-2 pr-2 text-gray-500 bg-transparent border-transparent rounded-md focus:border-transparent sm:text-sm">
-                            <option value="aics_no">AICS NO.</option>
+                            <select wire:model.debounce.500ms="filters.sort-field" id="combo-search" class="h-full py-0 pl-2 pr-2 text-gray-500 bg-purple-200 rounded-l-xl border-transparent focus:border-transparent sm:text-sm">
                             <option value="date">DATE</option>
+                            <option value="name">NAME</option>
+                            <option value="address">ADDRESS</option>
+                            <option value="age">AGE</option>
+                            <option value="birthday">BIRTHDAY</option>
+                            <option value="problem_presented">PROBLEM</option>
+                            <option value="intervention">INTERVENT</option>
                             </select>
                         </div>
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-24 pointer-events-none">
-                            <x-icon.search class="w-5 h-5 text-gray-500" />
-                            </div>
                         <x-input wire:model.debounce.500ms="filters.search" id="searchTerm"
-                            class="block w-full pl-32 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-xl focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            class="block w-full pl-28 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-xl focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-purple-500 sm:text-sm"
                             placeholder="Search" placeholder="Type any keyword..." type="search" />
                         </div>
                     </div>
-                    <a x-on:click="advance_search =! advance_search" href="#"
+                    {{-- <a x-on:click="advance_search =! advance_search" href="#"
                         class="flex ml-3 text-indigo-600 underline hover:text-indigo-900">
                         <span class="pl-2 text-xs italic underline uppercase">Advance Search</span>
-                    </a>
+                    </a> --}}
                 </div>
 
                 <div class="flex justify-between px-2 my-2 space-x-2">
